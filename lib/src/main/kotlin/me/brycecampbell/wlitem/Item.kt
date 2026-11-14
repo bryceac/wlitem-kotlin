@@ -12,14 +12,14 @@ class Item(
     var quantity: Int = 1,
     var priority: Priority = Priority.Low,
     var url: URI = URI(""),
-    var notes: MutableList<Item> = mutableListOf()) {
+    var notes: MutableList<String> = mutableListOf()) {
         constructor(
             id: String = Uuid.random().toString(),
             name: String = "",
             quantity: Int = 1,
             priority: String = "low",
             url: String = "",
-            notes: MutableList<Item> = mutableListOf()): this(
+            notes: MutableList<String> = mutableListOf()): this(
                 id, 
                 name, 
                 quantity, 
