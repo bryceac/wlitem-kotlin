@@ -28,7 +28,7 @@ class Item(
                 notes)
                 
             companion object {
-                @JvmStatic fun parse(text: String) {
+                @JvmStatic fun parse(text: String): Item {
                     var fields: Array<String> = text.split("\\t")
                 .toTypedArray()
                 
@@ -54,6 +54,8 @@ class Item(
                     } else {
                         URI("")
                     }
+                    
+                    return Item(id, name, quantity, priority, url, mutableListOf())
                 }
             }
 
