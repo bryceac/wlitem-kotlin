@@ -3,6 +3,7 @@
  */
 package org.example
 
+import me.brycecampbell.Library
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
