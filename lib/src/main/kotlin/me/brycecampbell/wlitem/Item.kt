@@ -29,7 +29,7 @@ class Item(
                 
             companion object {
                 @JvmStatic fun parse(text: String): Item {
-                    var fields: Array<String> = text.split("\\t")
+                    var fields: Array<String> = text.split("\t")
                 .toTypedArray()
                 
                     val id: String = fields[0].ifEmpty {
