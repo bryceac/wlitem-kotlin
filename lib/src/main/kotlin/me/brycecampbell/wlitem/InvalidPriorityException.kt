@@ -2,4 +2,4 @@
 
 package me.brycecampbell.wlitem
 
-class InvalidPriorityException(val priority: String): Exception(priority)
+class InvalidPriorityException(priority: String): Exception(priority)
