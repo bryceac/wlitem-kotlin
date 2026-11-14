@@ -10,7 +10,7 @@ class Item(
     val id: String = Uuid.random().toString(), 
     var name: String = "",
     var quantity: Int = 1,
-    var priority: Priority = Priority.low,
+    var priority: Priority = Priority.Low,
     var url: URI = URI(""),
     var notes: MutableList<Item> = mutableListOf()) {
         constructor(
@@ -21,42 +21,40 @@ class Item(
             url: String = "",
             notes: MutableList<Item> = mutableListOf()): this(
                 id, 
-                name,
-                quantity,
+                name, 
+                quantity, 
                 Priority.parse(priority),
-                url,
+                URI(url), 
                 notes)
                 
-            constructor(text: String) {
-                var fields: Array<String> = text.split("\\t")
+            companion object {
+                @JvmStatic fun parse(text: String) {
+                    var fields: Array<String> = text.split("\\t")
                 .toTypedArray()
                 
-                this.id = if (!fields[0].isEmpty()) {
-                    fields[0]
-                } else {
-                    Uuid.random()
-                }
+                    val id: String = fields[0].ifEmpty {
+                        Uuid.random().toString()
+                    }
                 
-                this.name = fields[1]
-                this.quantity = if (!fields[2].isEmpty()) {
-                    fields[2] as Int
-                } else {
-                    1
-                }
+                    val name = fields[1]
+                    val quantity = if (fields[2].isNotEmpty()) {
+                        fields[2].toInt()
+                    } else {
+                        1
+                    }
                 
-                this.priority = if (!fields[3].isEmpty()) {
-                    Priority.parse(fields[3])
-                } else {
-                    Priority.low
-                }
+                    val priority = if (fields[3].isNotEmpty()) {
+                        Priority.parse(fields[3])
+                    } else {
+                        Priority.Low
+                    }
                 
-                this.url = if (!fields[4].isEmpty()) {
-                    URI(fields[4])
-                } else {
-                    URI("")
+                    val url = if (fields[4].isNotEmpty()) {
+                        URI(fields[4])
+                    } else {
+                        URI("")
+                    }
                 }
-                
-                this.notes = mutableListOf()
             }
 
     override fun toString(): String {
