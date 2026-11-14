@@ -3,28 +3,28 @@
 package me.brycecampbell.wlitem
 
 enum class Priority {
-    low,
-    medium,
-    high,
-    highest;
+    Low,
+    Medium,
+    High,
+    Highest;
 
     override fun toString(): String {
        return when (this) {
-            low -> "low"
-            medium -> "medium"
-            high -> "high"
-            highest -> "highest"
+            Low -> "low"
+            Medium -> "medium"
+            High -> "high"
+            Highest -> "highest"
         }
     }
     
     companion object {
         @JvmStatic
         fun parse(priority: String): Priority {
-            when (priority) {
-                "low" -> Priority.low
-                "medium" -> Priority.medium
-                "high" -> Priority.high
-                "highest" -> Priority.highest
+            return when (priority) {
+                "low" -> Priority.Low
+                "medium" -> Priority.Medium
+                "high" -> Priority.High
+                "highest" -> Priority.Highest
                 else -> throw InvalidPriorityException(priority)
             }
         }

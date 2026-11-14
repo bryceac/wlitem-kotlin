@@ -4,16 +4,17 @@ package me.brycecampbell.wlitem
 
 import kotlin.uuid.Uuid
 import kotlin.collections.*
+import java.net.URI
 
 class Item(
-    val id: String = Uuid.random(), 
+    val id: String = Uuid.random().toString(), 
     var name: String = "",
     var quantity: Int = 1,
     var priority: Priority = Priority.low,
     var url: URI = URI(""),
     var notes: MutableList<Item> = mutableListOf()) {
         constructor(
-            id: String = Uuid.random(),
+            id: String = Uuid.random().toString(),
             name: String = "",
             quantity: Int = 1,
             priority: String = "low",
@@ -21,7 +22,8 @@ class Item(
             notes: MutableList<Item> = mutableListOf()): this(
                 id, 
                 name,
-                priority,
+                quantity,
+                Priority.parse(priority),
                 url,
                 notes)
                 
