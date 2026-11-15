@@ -12,6 +12,8 @@ plugins {
 
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
+
+    kotlin("plugin.serialization") version "2.4.10"
 }
 
 repositories {
@@ -25,6 +27,8 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation(libs.guava)
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.13.0")    
 }
 
 testing {
