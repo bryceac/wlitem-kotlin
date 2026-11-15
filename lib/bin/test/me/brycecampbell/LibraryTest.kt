@@ -33,7 +33,7 @@ class LibraryTest {
             Item("6AA6A21C-F22D-40A5-AE1A-D7E2B4F87724", "Dragon Quest 7", 1, "low", "https://example.com/nintendo_switch_2/dragon-quest")
         )
 
-        assertDoesNotThrow { sampleItems.saveToTSV("items.tsv") }
+        assertDoesNotThrow { sampleItems.saveToTSV("test/resources/items.tsv") }
     }
     
     @Test fun tsvParsesWithoutIssue() {
@@ -43,7 +43,7 @@ class LibraryTest {
             Item("6AA6A21C-F22D-40A5-AE1A-D7E2B4F87724", "Dragon Quest 7", 1, "low", "https://example.com/nintendo_switch_2/dragon-quest")
         )
         
-        assertEquals(sampleItems[0].id, Item.loadFromTSV("items.tsv")[0].id)
+        assertEquals(sampleItems[0].id, Item.loadFromTSV("test/resources/items.tsv")[0].id)
     }
     
     @Test fun savingItemsAsJSON() {
@@ -53,7 +53,7 @@ class LibraryTest {
             Item("6AA6A21C-F22D-40A5-AE1A-D7E2B4F87724", "Dragon Quest 7", 1, "low", "https://example.com/nintendo_switch_2/dragon-quest")
         )
         
-        assertDoesNotThrow { sampleItems.saveToJSON("items.json") }
+        assertDoesNotThrow { sampleItems.saveToJSON("test/resources/items.json") }
     }
     
     @Test fun jsonParsesWithoutIssue() {
@@ -63,6 +63,6 @@ class LibraryTest {
             Item("6AA6A21C-F22D-40A5-AE1A-D7E2B4F87724", "Dragon Quest 7", 1, "low", "https://example.com/nintendo_switch_2/dragon-quest")
         )
         
-        assertEquals(sampleItems[0].id, Item.loadFromJSON("items.json")[0].id)
+        assertEquals(sampleItems[0].id, Item.loadFromJSON("test/resources/items.json")[0].id)
     }
 }
