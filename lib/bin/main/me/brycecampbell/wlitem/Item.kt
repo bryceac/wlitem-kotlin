@@ -1,8 +1,10 @@
 @file:JvmName("Item")
+@file:UseSerializers(URISerializer::class)
 
 package me.brycecampbell.wlitem
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.UseSerializers
 import java.io.BufferedReader
 import java.io.FileReader
 import kotlin.uuid.Uuid
