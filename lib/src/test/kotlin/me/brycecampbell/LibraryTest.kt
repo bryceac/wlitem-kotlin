@@ -16,4 +16,12 @@ class LibraryTest {
 
         assertEquals(expectedItem.id, Item.parse(content).id)
     }
+    
+    @Test fun itemConvertsToStringCorrectly() {
+        val expected = "7746C39C-D951-4E03-840C-8E91AF0B6D1D\tNintendo Switch 2\t1\thigh\thttps://example.com/nintendo_switch_2"
+        
+        val item = Item("7746C39C-D951-4E03-840C-8E91AF0B6D1D", "Nintendo Switch 2", 1, "high", "https://example.com/nintendo_switch_2")
+        
+        assertEquals(expected, item.toString())
+    }
 }
