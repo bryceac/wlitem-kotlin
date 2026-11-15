@@ -8,7 +8,7 @@ import kotlin.uuid.Uuid
 import kotlin.collections.*
 import java.net.URI
 
-class Item(
+data class Item(
     val id: String = Uuid.random().toString(), 
     var name: String = "",
     var quantity: Int = 1,
