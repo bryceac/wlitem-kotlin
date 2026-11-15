@@ -14,6 +14,9 @@ import kotlin.collections.*
 import java.net.URI
 import java.nio.file.Paths
 
+/**
+ * Item object represents an item in a wishlist, including any notes.
+ */
 @Serializable
 data class Item(
     val id: String = Uuid.random().toString(), 

@@ -6,6 +6,7 @@ import java.io.BufferedWriter
 import java.io.FileWriter
 import java.nio.file.Paths
 
+/// method to save items to JSON file.
 fun MutableList<Item>.saveToJSON(path: String) {
     val specifiedPath = Paths.get(path).toAbsolutePath()
     

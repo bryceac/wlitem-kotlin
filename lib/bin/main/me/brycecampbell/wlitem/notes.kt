@@ -1,5 +1,6 @@
 package me.brycecampbell.wlitem
 
+/// uniques notes found in a list.
 fun MutableList<Item>.notes(): List<String> {
     var unique: MutableSet<String> = mutableSetOf()
     
