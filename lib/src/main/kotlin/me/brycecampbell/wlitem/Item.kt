@@ -2,12 +2,14 @@
 
 package me.brycecampbell.wlitem
 
+import kotlinx.serialization.Serializable
 import java.io.BufferedReader
 import java.io.FileReader
 import kotlin.uuid.Uuid
 import kotlin.collections.*
 import java.net.URI
 
+@Serializable
 data class Item(
     val id: String = Uuid.random().toString(), 
     var name: String = "",
