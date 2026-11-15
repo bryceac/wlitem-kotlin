@@ -2,11 +2,15 @@
 
 package me.brycecampbell.wlitem
 
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
 enum class Priority {
-    Low,
-    Medium,
-    High,
-    Highest;
+   @SerialName("low") Low,
+    @SerialName("medium") Medium,
+    @SerialName("high") High,
+    @SerialName("highest") Highest;
 
     override fun toString(): String {
        return when (this) {
