@@ -69,7 +69,7 @@ class Item(
         .append("\t")
         .append(this.priority)
         .append("\t")
-        .append("this.url")
+        .append(this.url)
         .toString()
     }
 }
