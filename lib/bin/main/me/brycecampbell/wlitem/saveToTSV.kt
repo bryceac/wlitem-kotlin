@@ -1,3 +1,5 @@
+@file:JvmName("tsv")
+
 package me.brycecampbell.wlitem
 
 import java.io.BufferedWriter
