@@ -5,6 +5,7 @@ package me.brycecampbell.wlitem
 
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.UseSerializers
+import kotlinx.serialization.json.Json
 import java.io.BufferedReader
 import java.io.FileReader
 import kotlin.uuid.Uuid
@@ -71,6 +72,13 @@ data class Item(
                     buffer.forEachLine { 
                         items.add(Item.parse(it))
                     }
+                    
+                    return items
+                }
+                
+                @JvmStatic fun loadFromJSON(path: String): MutableList<Item> {
+                    val buffer = BufferedReader(FileReader(path))
+                    var items: MutableList<Item> = Json.decodeFromString(buffer.toString())
                     
                     return items
                 }
