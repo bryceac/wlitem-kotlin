@@ -36,7 +36,7 @@ class LibraryTest {
         assertDoesNotThrow { sampleItems.saveToTSV("items.tsv") }
     }
     
-    @Test fun TSVParsesWithoutIssue() {
+    @Test fun tsvParsesWithoutIssue() {
         val sampleItems = mutableListOf(
             Item("7746C39C-D951-4E03-840C-8E91AF0B6D1D", "Nintendo Switch 2", 1, "high", "https://example.com/nintendo_switch_2"),
             Item("BBDF7A43-C38B-4943-93A0-BDD6B47A2685", "Mario Kart World", 1, "high", "https://example.com/nintendo_switch_2/mario-kart"),
