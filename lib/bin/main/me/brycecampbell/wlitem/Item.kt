@@ -7,10 +7,12 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.UseSerializers
 import kotlinx.serialization.json.Json
 import java.io.BufferedReader
+import java.io.File
 import java.io.FileReader
 import kotlin.uuid.Uuid
 import kotlin.collections.*
 import java.net.URI
+import java.nio.file.Paths
 
 @Serializable
 data class Item(
@@ -77,8 +79,9 @@ data class Item(
                 }
                 
                 @JvmStatic fun loadFromJSON(path: String): MutableList<Item> {
-                    val buffer = BufferedReader(FileReader(path))
-                    var items: MutableList<Item> = Json.decodeFromString(buffer.toString())
+                    val specifiedPath = Paths.get(path)
+                    val content = File(specifiedPath.toAbsolutePath().toString())
+                    var items: MutableList<Item> = Json.decodeFromString(content.readText())
                     
                     return items
                 }
