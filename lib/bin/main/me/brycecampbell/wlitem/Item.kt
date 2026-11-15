@@ -2,6 +2,8 @@
 
 package me.brycecampbell.wlitem
 
+import java.io.BufferedReader
+import java.io.FileReader
 import kotlin.uuid.Uuid
 import kotlin.collections.*
 import java.net.URI
@@ -56,6 +58,17 @@ class Item(
                     }
                     
                     return Item(id, name, quantity, priority, url, mutableListOf())
+                }
+                
+                @JvmStatic fun loadFromTSV(path: String): MutableList<Item> {
+                    val buffer = BufferedReader(FileReader(path))
+                    var items: MutableList<Item> = mutableListOf()
+                    
+                    buffer.forEachLine { 
+                        items.add(Item.parse(it))
+                    }
+                    
+                    return items
                 }
             }
 
