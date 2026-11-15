@@ -4,6 +4,7 @@
 package me.brycecampbell
 
 import me.brycecampbell.wlitem.*
+import org.junit.jupiter.api.assertDoesNotThrow
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
@@ -23,5 +24,25 @@ class LibraryTest {
         val item = Item("7746C39C-D951-4E03-840C-8E91AF0B6D1D", "Nintendo Switch 2", 1, "high", "https://example.com/nintendo_switch_2")
         
         assertEquals(expected, item.toString())
+    }
+    
+    @Test fun savingItemsToTSV() {
+        val sampleItems = mutableListOf(
+            Item("7746C39C-D951-4E03-840C-8E91AF0B6D1D", "Nintendo Switch 2", 1, "high", "https://example.com/nintendo_switch_2"),
+            Item("BBDF7A43-C38B-4943-93A0-BDD6B47A2685", "Mario Kart World", 1, "high", "https://example.com/nintendo_switch_2/mario-kart"),
+            Item("6AA6A21C-F22D-40A5-AE1A-D7E2B4F87724", "Dragon Quest 7", 1, "", "https://example.com/nintendo_switch_2/dragon-quest")
+        )
+
+        assertDoesNotThrow { sampleItems.saveToTSV("items.tsv") }
+    }
+    
+    @Test fun TSVParsesWithoutIssue() {
+        val sampleItems = mutableListOf(
+            Item("7746C39C-D951-4E03-840C-8E91AF0B6D1D", "Nintendo Switch 2", 1, "high", "https://example.com/nintendo_switch_2"),
+            Item("BBDF7A43-C38B-4943-93A0-BDD6B47A2685", "Mario Kart World", 1, "high", "https://example.com/nintendo_switch_2/mario-kart"),
+            Item("6AA6A21C-F22D-40A5-AE1A-D7E2B4F87724", "Dragon Quest 7", 1, "", "https://example.com/nintendo_switch_2/dragon-quest")
+        )
+        
+        assertEquals(sampleItems[0].id, Item.loadFromTSV("items.tsv")[0].id)
     }
 }
