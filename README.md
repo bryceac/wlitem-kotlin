@@ -27,6 +27,8 @@ This library has been test with Java 25, but **should** be backwards compatible 
 <p>After moving to Linux, I wanted to get back into GUI programming, but even though I have been mainly programming in Rust these days, GUI was a pain to detail with in the two languages I have the most experience with.</p>
 <p>As such, I decided to give Java another chance, but I was having issues getting the main formats to be support well and decided to make a library in Kotlin.</p>
 </dd>
+</li>
+<li>
 <dt style="font-weight:bold">Does this work on Android?</dt>
 <dd>
 <p>After the headache that I dealt with in <a href="https://github.com/bryceac/BCheckbook-Android">another project</a>, I do not have any interest in dealing with Android.</p>
