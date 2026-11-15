@@ -7,7 +7,11 @@ import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import java.net.URI
 
-// Serializer code imported from the following address on Nov. 14, 2026.
+/*
+ * Serializer code imported from the following address on Nov. 14, 2026.
+ * 
+ * https://gist.github.com/kenvix/6523d48e95930ad764efc2b5294dbf17
+ */
 object URISerializer: KSerializer<URI> {
     override val descriptor: SerialDescriptor = buildClassSerialDescriptor("URI") {}
 
